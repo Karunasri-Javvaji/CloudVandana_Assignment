@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .slider-container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <img id="slider" src="" alt="Image Slider">
+        <div class="buttons">
+            <button onclick="prevImage()">Previous</button>
+            <button onclick="nextImage()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+        "C:\\Users\\karun\\OneDrive\\Desktop\\HTML\\Images1\\Picture1.jpg",
+        "C:\\Users\\karun\\OneDrive\\Desktop\\HTML\\Images1\\Picture2.jpg",
+        "C:\\Users\\karun\\OneDrive\\Desktop\\HTML\\Images1\\Picture3.jpg"
+        ];
+        
+        let currentIndex = 0;
+        const slider = document.getElementById("slider");
+        slider.src = images[currentIndex];
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            slider.src = images[currentIndex];
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            slider.src = images[currentIndex];
+        }
+    </script>
+</body>
+</html>
